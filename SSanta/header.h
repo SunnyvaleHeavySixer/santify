@@ -45,10 +45,4 @@ bool isEmail(std::string const& address)
     && address.find_first_of('.', at_index) != std::string::npos;
 }
 
-//std::string isEmailResponse()
-//{
-//
-//}
-
-
 #endif /* header_h */
