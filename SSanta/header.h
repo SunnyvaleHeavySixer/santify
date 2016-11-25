@@ -10,6 +10,9 @@
 #define header_h
 
 #include <string>
+#include <stdlib.h>     /* srand, rand */
+#include <time.h>       /* time */
+
 
 // Structure to contain peoples names, emails, partners and an id number
 struct Participants
@@ -45,4 +48,17 @@ bool isEmail(std::string const& address)
     && address.find_first_of('.', at_index) != std::string::npos;
 }
 
+// Random Number Generator
+/* rand example: guess the number */
+
+int RandY(int x)
+{
+    int iSecret;
+    /* initialize random seed: */
+    srand (time(NULL));
+    
+    /* generate secret number between 1 and number provided: */
+    iSecret = rand() % x;
+    return iSecret;
+}
 #endif /* header_h */

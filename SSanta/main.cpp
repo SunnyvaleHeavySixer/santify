@@ -21,6 +21,7 @@ int main()
     int numParticipants, temp_idNumber;
     string temp_name, temp_email, temp_partner; //variables to store user inputs
     std::vector<Participants> ParticipantsList; //expandable list of Participants (struct is defined in header file)
+    
 
     
    // RecipientsList = ParticipantsList;
@@ -60,18 +61,16 @@ int main()
     cout << "\n\n<<<<<  S E C R E T    S A N T A  >>>>> \n";
     cout <<     "<<<<<          selections:       >>>>> \n \n";
     
-    
     // Logic for Secret Santa selections:
     // 2 arrays? One for Sender, one for recipient? Randomize each time?
     // Step sequentially through Sender array > ignore sender's Partner if valid + still available
     // Pick recipient and remove them from the Recipient array
     
-    //<<"Name: "<<ParticipantsList.at(i).name<<" \n"
-    //<<"Email: "<<ParticipantsList.at(i).email<<" \n"
-    //<<"Partner: "<<ParticipantsList.at(i).partner<<" \n"
-    //<<"ID: "<<ParticipantsList.at(i).idNumber<<std::endl<<std::endl;
+    //THIS RANDOM NUMBER GENERATOR IS BROKEN.  SAME EACH TIME.  FIX ME
+    for(int i=0;i<numParticipants;i++)
+        cout<<ParticipantsList[i].name << " is getting a present for: " <<ParticipantsList[RandY(ParticipantsList.size())].name << " \n\n";
     
-    //for(int i=0;i<numParticipants;i++)
+    
     
     return 0;
 }
