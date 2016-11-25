@@ -25,29 +25,30 @@ struct Participants
     }
 };
 
-// Method to check if email has an @ sign
-bool isEmail(std::string x)
-{
-    long int lStr = x.length();
-    //bool isValid = false;
-    char c = '\0';
-    for(int i=0;i<lStr;i++)
-        c = x[i];
-    if (c == '@')
-        return true;
-    //                {
-    //                std::cout<<"This loop has found the @ sign \n";
-    //                isValid = true;
-    //                }
-    else
-    {
-        std::cout<<"This loop has not found the @ sign \n";
-        //isValid = false;
-    }
-    //if (isValid == true){return true;}
-    return false;
+//Function to get number of participants
+int getParticipants()
+{   
+    int x;
+    std::cout<<"Enter Number of Participants: ";
+    std::cin>>x;
+    return x;
 }
 
+// Method to check if email has an @ sign
+// Checks that the string contains at least one '@' and a '.'
+// after it. This will have lots of false negatives (but no
+// false negative), like "a@b@c.com" or "toto@com.".
+bool isEmail(std::string const& address)
+{
+    size_t at_index = address.find_first_of('@', 0);
+    return at_index != std::string::npos
+    && address.find_first_of('.', at_index) != std::string::npos;
+}
+
+//std::string isEmailResponse()
+//{
+//
+//}
 
 
 #endif /* header_h */

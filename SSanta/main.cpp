@@ -18,19 +18,23 @@ int main()
 {
     int numParticipants, temp_idNumber;
     string temp_name, temp_email, temp_partner; //variables to store user inputs
-    std::vector<Participants> ParticipantsList; //list of Participants
+    std::vector<Participants> ParticipantsList; //expandable list of Participants (struct is defined in header file)
     
-    std::cout<<"Enter Number of Participants: ";
-    std::cin>>numParticipants; //get number of Participants
+    //std::cout<<"Enter Number of Participants: ";
+    numParticipants = getParticipants(); //get number of Participants
     
     for(int i=0;i<numParticipants;i++) //loop according to how many Participants you have
     {
         std::cout<<"Enter name of of Participant "<<(i+1)<<": ";
         std::cin>>temp_name; //get name
-        std::cout<<"Enter email of Participant "<<(i+1)<<": ";
-        std::cin>>temp_email; //get email
-        //testing if email is valid
-        if (isEmail(temp_email) == false){cout<<"WTF thats not an email ";}
+        
+            // Email address simple validation (defined in header)
+            do
+                {
+                    std::cout << "Please enter email address of Participant "<<(i+1)<<":\n";
+                    std::cin>>temp_email;
+                }
+            while (isEmail(temp_email) == false);
         
         std::cout<<"Enter partner of Participant "<<(i+1)<<" (type 0 if no partner)"<<": ";
         std::cin>>temp_partner; //get partner
